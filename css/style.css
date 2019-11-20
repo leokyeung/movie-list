@@ -1,0 +1,60 @@
+#app {
+    color: lightslategray;
+    font-size: large;
+    align-content: center;
+}
+
+body {
+    background-color:#fee5e2;
+    text-align: center;
+}
+
+#search, #addmovie {
+    font-size: x-large;
+}
+
+#textbox {
+    padding: 5px;
+    margin-left: 15px;
+    border: 0px;
+    
+}
+
+#addbutton {
+    padding: 5px;
+    font-size: medium;
+    margin: 10px;
+    width: 10%;
+}
+
+#watchbutton {
+    padding: 5px;
+    font-size: medium;
+    margin: 10px;
+    width: 10%;
+}
+
+#watchbutton:hover{
+    cursor: pointer;
+}
+#addbutton:hover {
+    cursor: pointer;
+}
+
+#movielist {
+    padding-top: 20px;
+    font: medium;
+    color: black;
+}
+
+#moviecheck {
+    padding: 5px;
+    font-size: medium;
+    margin: 10px;
+    width: 15%;
+}
+
+#moviecheck:hover{
+    cursor: pointer;
+}
+
