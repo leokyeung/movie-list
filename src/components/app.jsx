@@ -18,7 +18,7 @@ class App extends React.Component {
     this.handleToggleClick = this.handleToggleClick.bind(this);
     this.makeitfalse = this.makeitfalse.bind(this);
     this.makeittrue = this.makeittrue.bind(this);
-    
+
     }
 
     addMovie (e) {
@@ -56,17 +56,11 @@ class App extends React.Component {
         });
     }
 
-   
-
-    
- 
-
-
     render() {
         let filteredList = this.state.list.filter( (list) => {
-            return list.item.toLowerCase().indexOf(this.state.searchInput.toLowerCase()) !== -1; 
+            return list.item.toLowerCase().indexOf(this.state.searchInput.toLowerCase()) !== -1;
         }
-        
+
 
         );
         return (
@@ -83,14 +77,14 @@ class App extends React.Component {
 
                 <button id ="watchbutton" onClick={this.makeitfalse}> To watch</button>
                 <button id="watchbutton" onClick={this.makeittrue}> Watched </button>
-                
-                
-                {filteredList.map((item) => { return < MovieList 
-                
-                movieList={item} 
+
+
+                {filteredList.map((item) => { return < MovieList
+
+                movieList={item}
                 toogle={this.handleToggleClick}
                 mainState={this.state.status}
-                
+
                 /> })}
 
             </div>
