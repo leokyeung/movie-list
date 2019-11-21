@@ -38,7 +38,14 @@ class MovieList extends React.Component {
                 {this.state.details && <MovieDetails
                 click={this.handleToggleClick}
                 status={this.state.status}
+
+                year={this.props.year}
+                score={this.props.score}
+                totalVote={this.props.totalVote}
+                img={this.props.img}
                 /> }
+
+
 
 
                 </div>

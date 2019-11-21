@@ -4,9 +4,14 @@ import ReactDOM from "react-dom";
 const MovieDetails = (props) => {
   return (
   <div>
-    Year: Some Year <br/>
-    Score: 69 <br/>
-    Total Votes: 1000<br/>
+    <img src={`http://image.tmdb.org/t/p/w185${props.img}`} alt="Picture"></img> <br/>
+
+    Year: {props.year} <br/>
+
+    Score: {props.score}<br/>
+
+    Total Votes: {props.totalVote}<br/>
+
     <button onClick={props.click} id="moviecheck">{props.status ? 'Watched' : 'To Watch'} </button>
   </div>
   )

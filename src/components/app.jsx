@@ -3,14 +3,20 @@ import MovieList from "./MovieList.jsx";
 import SearchBar from "./SearchBar.jsx";
 import AddMovie from "./AddMovie.jsx";
 
+
 class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             list : [],
+            movieData: [],
             addInput: "",
             searchInput: "",
-            status: false
+            status: false,
+            year: 0,
+            score: 0,
+            totalVote: 0,
+            img: ""
         }
     this.search = this.search.bind(this);
     this.addMovie = this.addMovie.bind(this);
@@ -18,19 +24,42 @@ class App extends React.Component {
     this.handleToggleClick = this.handleToggleClick.bind(this);
     this.makeitfalse = this.makeitfalse.bind(this);
     this.makeittrue = this.makeittrue.bind(this);
+    this.apiKey = process.env.REACT_APP_API;
 
     }
 
     addMovie (e) {
-        this.setState({addInput: e.target.value, status: this.state.status});
+        this.setState({addInput: e.target.value});
     }
     submit(e) {
         e.preventDefault();
-        var obj = {item: this.state.addInput, status: this.state.status};
+
+        fetch(`https://api.themoviedb.org/3/search/movie?api_key=f3a73a40f205e290bbe75736285701e6&query=${this.state.addInput}`)
+        .then(data => data.json())
+        .then(data => {
+            this.setState({
+                year: data.results[0].release_date,
+                score: data.results[0].vote_average,
+                totalVote: data.results[0].vote_count,
+                img: data.results[0].poster_path
+            })
+            //console.log(this.state.totalVote);
+
+        var obj = {item: this.state.addInput ,
+        year: this.state.year,
+        score: this.state.score,
+        totalVote: this.state.totalVote,
+        img: this.state.img};
+
         var oldList = this.state.list;
         oldList.push(obj);
-        console.log(oldList);
-        this.setState({list: oldList});
+
+        this.setState({
+            list:oldList
+        })
+
+        })
+        console.log(this.state.list)
 
     }
 
@@ -55,6 +84,8 @@ class App extends React.Component {
             status: false
         });
     }
+
+
 
     render() {
         let filteredList = this.state.list.filter( (list) => {
@@ -84,6 +115,11 @@ class App extends React.Component {
                 movieList={item}
                 toogle={this.handleToggleClick}
                 mainState={this.state.status}
+
+                year={item.year}
+                score={item.score}
+                totalVote={item.totalVote}
+                img={item.img}
 
                 /> })}
 
