@@ -85,3 +85,16 @@ body {
 #item:hover {
     color: lightgreen;
 }
+
+#remove {
+    margin: 10px;
+    border: none;
+    position: relative;
+    font-size: large;
+    left: 30px;
+    background-color: #fee5e2;
+}
+
+#remove:hover {
+    cursor: pointer;
+}

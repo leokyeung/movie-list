@@ -6,8 +6,8 @@ class MovieList extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-         status: false,
-         details: false
+            status: false,
+            details: false
         }
         this.handleToggleClick = this.handleToggleClick.bind(this);
         this.displayDetails = this.displayDetails.bind(this);
@@ -25,25 +25,27 @@ class MovieList extends React.Component {
         }));
     }
 
-        render() {
+    render() {
         if (this.props.mainState === this.state.status) {
             return (
 
                 <div id="movielist">
 
-                {/* on click the movie list item will change the state */}
-                <span id="item" onClick={this.displayDetails}>{this.props.movieList.item}</span>
+                    {/* on click the movie list item will change the state */}
+                    <span id="item" onClick={this.displayDetails}>{this.props.movieList.Title}</span>
 
-                {/* if the state is true, then display details */}
-                {this.state.details && <MovieDetails
-                click={this.handleToggleClick}
-                status={this.state.status}
+                    <button id="remove" type="button" className="btn btn-outline-dark" onClick={() => this.props.removeMovie(this.props.movieList.id)}> X </button>
 
-                year={this.props.year}
-                score={this.props.score}
-                totalVote={this.props.totalVote}
-                img={this.props.img}
-                /> }
+                    {/* if the state is true, then display details */}
+                    {this.state.details && <MovieDetails
+                        click={this.handleToggleClick}
+                        status={this.state.status}
+
+                        year={this.props.movieList.Year}
+                        score={this.props.movieList.Score}
+                        totalVote={this.props.movieList.Total_Vote}
+                        img={this.props.movieList.img}
+                    />}
 
 
 
@@ -56,7 +58,7 @@ class MovieList extends React.Component {
         }
 
 
-        }
+    }
 
 
 }

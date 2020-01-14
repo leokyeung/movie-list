@@ -3,8 +3,8 @@ import React from "react";
 var AddMovie = (props) => (
 
     <div>
-        <form class="form" onSubmit={props.submit} method="post">
-            <label for="search" id="addmovie">Add Movie</label>
+        <form className="form" onSubmit={props.submit} method="post">
+            <label htmlFor="search" id="addmovie">Add Movie</label>
 
             <input type="text" id="textbox" onChange={props.addMovie}/>
 

@@ -1,11 +1,12 @@
-create database leodb;
-use leodb;
+CREATE DATABASE if not exists leodb1;
+use leodb1;
 
-create table movieinfo (
-  id int not null auto_increment primary key,
-  moviename varchar(100),
-  movieyear varchar(100),
-  score int,
-  totalvote int,
-
+CREATE TABLE movielist (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    Title VARCHAR(100),
+    Year int,
+    Score int,
+    Total_Vote int,
+    img VARCHAR(100)
 )
+    
